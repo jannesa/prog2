@@ -55,8 +55,14 @@ public class ClockView extends JFrame implements Observer {
 		return stopBtn;
 	}
 	
+	public void setStartBtnStop() {
+		startBtn.setEnabled(false);
+	}
 	
-
+	public void setStartBtnStart() {
+		startBtn.setEnabled(true);
+	}
+	
 	@Override
 	public void update(Observable o, Object arg) {
 		if (arg instanceof Integer) {

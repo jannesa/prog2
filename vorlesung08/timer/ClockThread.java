@@ -8,38 +8,43 @@ public class ClockThread extends Observable implements Runnable {
 	boolean run = true ;
 	
 	
+	public void setRun(boolean run){
+		this.run = run ;
+	}
 	
+	
+	public void reset(){
+		count = 0 ;
+		run = false ;
+		setChanged();
+		notifyObservers(count);
+	}
+	
+
 	
 	@Override
 	public void run() {
 
 		while(run){
-
+			count ++ ;
+			setChanged();
+			notifyObservers(count);
 			
 			try {
-				count ++ ;
-				setChanged();
-				notifyObservers(count);
-
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-
-
 		}
 	}
-	
-	public void reset() {
-		count = 0;
+
+
+	public void start() {
+		// TODO Auto-generated method stub
+		
 	}
 	
-	public void stop() throws InterruptedException {
-		Thread.sleep(1000);
-		setChanged();
-		notifyObservers(count);
-	}
+
 
 }
