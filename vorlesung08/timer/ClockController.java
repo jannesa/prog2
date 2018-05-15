@@ -6,9 +6,18 @@ public class ClockController {
 		ClockThread thread = new ClockThread();
 
 		view.getStartBtn().addActionListener(l -> {
+			thread.reset();
+			Thread t = new Thread(thread);
+			t.run();
 		});
 		
 		view.getStopBtn().addActionListener(l -> {
+			try {
+				thread.stop() ;
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 		thread.addObserver(view);
