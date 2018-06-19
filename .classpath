@@ -6,5 +6,6 @@
 	<classpathentry kind="src" path="#Sonstiges"/>
 	<classpathentry kind="src" path="vorlesung10"/>
 	<classpathentry kind="src" path="vorlesung10_"/>
+	<classpathentry kind="src" path="Prüfung"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
